@@ -1,8 +1,10 @@
 package com.theinternet.pages;
 
 import com.theinternet.pages.alerts.AlertsPage;
+import com.theinternet.pages.broken_images.BrokenImagesPage;
 import com.theinternet.pages.dropdown.DropdownPage;
 import com.theinternet.pages.frames.IFramePage;
+import com.theinternet.pages.link.RedirectLinkPage;
 import com.theinternet.pages.slider.SliderPage;
 import com.theinternet.pages.window.WindowPage;
 import org.openqa.selenium.WebDriver;
@@ -79,12 +81,30 @@ public class HomePage extends BasePage {
     }
 
 
-
     @FindBy(xpath = "//a[text()='drag_and_drop']")
     WebElement dragAndDrop;
 
     public DropdownPage getDragAndDropPage() {
         click(dragAndDrop);
         return new DropdownPage(driver);
+    }
+
+
+    @FindBy(xpath = "//a[text()='Redirect Link']")
+    WebElement link;
+
+    public RedirectLinkPage getLinkPage() {
+        click(link);
+        return new RedirectLinkPage(driver);
+    }
+
+
+    @FindBy(xpath = "//a[text()='Broken Images']")
+    WebElement brokenImg;
+
+
+    public BrokenImagesPage selectBrokenImages() {
+        click(brokenImg);
+        return new BrokenImagesPage(driver);
     }
 }
