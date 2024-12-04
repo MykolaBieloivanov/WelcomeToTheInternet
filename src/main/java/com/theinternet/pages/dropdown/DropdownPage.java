@@ -5,21 +5,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
-public class DropdowsPage extends BasePage {
+public class DropdownPage extends BasePage {
 
-    public DropdowsPage(WebDriver driver) {
+    public DropdownPage(WebDriver driver) {
         super(driver);
     }
 
     @FindBy (id = "dropdown")
     WebElement dropdown;
 
-    public DropdowsPage selectAnOption(String option) {
-
+    public DropdownPage selectAnOption(String option) {
+        Assert.assertTrue(shouldHaveText(dropdown, option, 5));
         Select select = new Select(dropdown);
-
         select.selectByVisibleText("Option 1");
         return this;
     }
+
 }
+

@@ -21,14 +21,10 @@ public class WindowPage extends BasePage {
 
     public WindowPage selectClickHere() {
         click(newOpenWindow);
-
-
         return new WindowPage(driver);
-
     }
 
     public WindowPage switchToNewTab(int index) {
-
         List<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(index));
         return this;
@@ -41,6 +37,7 @@ public class WindowPage extends BasePage {
     public WindowPage verifyNewTabTitle(String text) {
         Assert.assertTrue(shouldHaveText(newWindow, text, 5));
         return this;
-
     }
+
+
 }

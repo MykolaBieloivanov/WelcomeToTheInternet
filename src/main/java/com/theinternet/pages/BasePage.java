@@ -17,12 +17,12 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void click(WebElement element){
+    public void click(WebElement element) {
         element.click();
     }
 
-    public void type(WebElement element, String text){
-        if(text != null){
+    public void type(WebElement element, String text) {
+        if (text != null) {
             element.click();
             element.clear();
             element.sendKeys(text);
@@ -30,10 +30,8 @@ public class BasePage {
 
     }
 
-
     public boolean shouldHaveText(WebElement element, String text, int time) {
-        return new WebDriverWait(driver, Duration.ofSeconds(time))
-                .until(ExpectedConditions.textToBePresentInElement(element, text));
+        return new WebDriverWait(driver, Duration.ofSeconds(time)).until(ExpectedConditions.textToBePresentInElement(element, text));
     }
 }
 
