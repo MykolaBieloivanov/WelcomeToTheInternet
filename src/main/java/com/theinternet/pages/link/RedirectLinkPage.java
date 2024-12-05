@@ -39,16 +39,14 @@ public class RedirectLinkPage extends BasePage {
             WebElement element = allLinks.get(i);
             String url = element.getDomAttribute("href");
             verifyLinks(url);
-
         }
         return this;
     }
 
     public void verifyLinks(String url) {
         try {
-
             URL linkUrl = new URL(url);
-            HttpURLConnection connection = (HttpURLConnection) linkUrl.openConnection();
+            HttpURLConnection connection = (HttpURLConnection)linkUrl.openConnection();
             connection.setConnectTimeout(5000);
             connection.connect();
             if (connection.getResponseCode() >= 400) {
@@ -60,5 +58,4 @@ public class RedirectLinkPage extends BasePage {
             System.out.println(url + " -- " + e.getMessage() + "--> ERROR");
         }
     }
-
 }

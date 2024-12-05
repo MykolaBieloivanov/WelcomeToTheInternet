@@ -20,7 +20,6 @@ public class BrokenImagesPage extends BasePage  {
 
     public void verifyLinks(String url) {
         try {
-
             URL linkUrl = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) linkUrl.openConnection();
             connection.setConnectTimeout(5000);

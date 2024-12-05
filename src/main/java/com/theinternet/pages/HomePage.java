@@ -3,6 +3,7 @@ package com.theinternet.pages;
 import com.theinternet.pages.alerts.AlertsPage;
 import com.theinternet.pages.broken_images.BrokenImagesPage;
 import com.theinternet.pages.dropdown.DropdownPage;
+import com.theinternet.pages.fileupload.FileUploadPage;
 import com.theinternet.pages.frames.IFramePage;
 import com.theinternet.pages.link.RedirectLinkPage;
 import com.theinternet.pages.slider.SliderPage;
@@ -107,4 +108,32 @@ public class HomePage extends BasePage {
         click(brokenImg);
         return new BrokenImagesPage(driver);
     }
+
+
+
+
+    @FindBy(xpath = "//a[text()='File Upload']")
+    WebElement fileUpload;
+
+    public FileUploadPage getFileUploadPage() {
+        click(fileUpload);
+            return new FileUploadPage(driver);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
